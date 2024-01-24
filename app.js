@@ -1,8 +1,11 @@
-const express = require('express');
+const express = require("express");
+const userRoute = require("./routes/userRoute");
 
 const app = express();
 
+app.use(express.json());
+
 // Routes
-app.get('/', (req, res) => {
-    console.log('Hi we are in / route');
-})
+app.use("/api/v1/user", userRoute);
+
+module.exports = app;
